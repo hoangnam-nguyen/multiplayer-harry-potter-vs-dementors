@@ -13,6 +13,8 @@ const runner = require('./test-runner.js');
 const app = express();
 
 app.use(helmet());
+app.use(helmet.noSniff());
+app.use(helmet.xssFilter());
 app.use(nocache());
 app.use(helmet.hidePoweredBy({ setTo: 'PHP 7.4.3' }));
 app.use(cors({ origin: '*' }));
